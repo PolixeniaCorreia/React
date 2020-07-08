@@ -6,11 +6,17 @@ export default class Saudacao extends Component {
         tipo: this.props.tipo,
         nome: this.props.nome,
     }
+
+    state = {
+        tipo: "Bom Dia",
+        nome: "Poli",
+    }
     
-    // state = {
-    //     tipo: "Bom dia",
-    //     nome: "Lua",
-    // }
+    constructor(props){
+        super(props)
+
+        this.setTipo = this.setTipo.bind(this)
+    }
 
     setTipo(e) {
         this.setState({ tipo: e.target.value })
@@ -28,10 +34,10 @@ export default class Saudacao extends Component {
                 <hr />
 
                 <input type="text" placeholder="Tipo..."
-                    value={tipo} onChange={e => this.setTipo(e)} />
+                    value={tipo} onChange={this.setTipo} />
 
                 <input type="text" placeholder="Nome..."
-                    value={nome} onChange={e => this.setNome(e)} />
+                    value={nome} onChange= {e => this.setNome(e)} />
             </div>
         )
     }
